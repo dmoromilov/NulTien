@@ -11,14 +11,17 @@ namespace NulTien.Tests
 {
     class Test01 : DriverManager
     {
+        String name = "test";
+        String message = "test; test; test";
+        String result = "-1";
 
         [Test]
         public void test01()
         {
             UltimateQA test = new UltimateQA(this);
-            test.populateName("test");
-            test.populateMessage("test");
-            test.populateResult("-1");
+            test.populateName(name);
+            test.populateMessage(message);
+            test.populateResult(result);
             test.clickSubmitBtn();
         }
     }
