@@ -15,14 +15,18 @@ namespace NulTien.Tests
         String message = "test; test; test";
         String result = "-1";
 
+        //Test TASK1
         [Test]
         public void test01()
         {
             UltimateQA test = new UltimateQA(this);
-            test.populateName(name);
-            test.populateMessage(message);
-            test.populateResult(result);
-            test.clickSubmitBtn();
+            test.populateName(name);  //populate filed [NAME]
+            test.populateMessage(message); //populate filed [MESSAGE]
+            test.populateResult(result); //populate filed from question
+            String FIRST_NUMBER = test.getFirstNumber(); //get first number to string
+            String SECOND_NUMBER = test.getSecondNumber(); //get second number to string
+            test.clickSubmitBtn(); //click [SUBMIT] button
+            test.compareNumbers(FIRST_NUMBER, SECOND_NUMBER); //compare sting with new first and second numbers 
         }
     }
 }

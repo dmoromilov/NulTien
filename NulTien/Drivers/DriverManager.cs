@@ -13,6 +13,7 @@ namespace NulTien.Drivers
         private static IWebDriver driver;
         private static WebDriverWait wait;
 
+        //Setup Driver
         [SetUp]
         public static void setup()
         {
@@ -36,8 +37,9 @@ namespace NulTien.Drivers
             driver.Navigate().GoToUrl("https://www.ultimateqa.com/filling-out-forms/");
         }
 
+        //Quit Driver
         [TearDown]
-        public void TearDown()
+        public static void TearDown()
         {
             driver.Close();
             driver.Quit();
