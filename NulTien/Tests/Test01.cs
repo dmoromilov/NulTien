@@ -15,7 +15,7 @@ namespace NulTien.Tests
         String message = "test; test; test";
         String result = "-1";
 
-        //Test TASK1
+        //Test TestCase-1
         [Test]
         public void test01()
         {
@@ -26,7 +26,12 @@ namespace NulTien.Tests
             String FIRST_NUMBER = test.getFirstNumber(); //get first number to string
             String SECOND_NUMBER = test.getSecondNumber(); //get second number to string
             test.clickSubmitBtn(); //click [SUBMIT] button
-            test.compareNumbers(FIRST_NUMBER, SECOND_NUMBER); //compare sting with new first and second numbers 
+            test.compareNumbers(FIRST_NUMBER, SECOND_NUMBER); //compare string with new first and second numbers 
         }
     }
 }
+//TestCase-1
+//1. Open https://www.ultimateqa.com/filling-out-forms/
+//2. Fill out the form on the right, but intentionally enter -1 as a result of addition
+//3. Submit the form and confirm that the numbers have changed
+//4. Close the browser
