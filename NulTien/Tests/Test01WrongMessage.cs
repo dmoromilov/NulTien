@@ -9,7 +9,7 @@ using System.Text;
 
 namespace NulTien.Tests
 {
-    class Test01 : DriverManager
+    class Test01WrongMessage : DriverManager
     {
         String name = "test";
         String message = "test; test; test";
@@ -26,7 +26,9 @@ namespace NulTien.Tests
             String FIRST_NUMBER = test.getFirstNumber(); //get first number to string
             String SECOND_NUMBER = test.getSecondNumber(); //get second number to string
             test.clickSubmitBtn(); //click [SUBMIT] button
-            test.compareNumbers(FIRST_NUMBER, SECOND_NUMBER); //compare string with new first and second numbers 
+            test.compareNumbers(FIRST_NUMBER, SECOND_NUMBER); //compare string with new first and second numbers
+            test.checkFailMessage(); //check 'Fail' message
+
         }
     }
 }

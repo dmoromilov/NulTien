@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NulTien.Tests
 {
-    class Test02 : DriverManager
+    class Test02SuccessMessage : DriverManager
     {
         String name = "test";
         String message = "test; test; test";

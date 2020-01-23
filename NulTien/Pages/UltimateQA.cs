@@ -46,6 +46,10 @@ namespace NulTien.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='et_pb_contact_form_1']/div/p[1]")]
         private IWebElement successMessage;
 
+        //Locator for HTML element
+        [FindsBy(How = How.XPath, Using = "//div[@class='et-pb-contact-message']/ul[1]/li[1]")]
+        private IWebElement wrongMessage;
+
 
         //Method to populate filed NAME
         public UltimateQA populateName(String n)
@@ -144,12 +148,47 @@ namespace NulTien.Pages
             return this;
         }
 
+        //Method to get element with 'SUCCESS' message
+        public String getSuccessMessage()
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='et_pb_contact_form_1']/div/p[1]")));
+            String successMess = successMessage.Text;
+            return successMess;
+        }
+
+        //Method to get element with 'FAIL' message
+        public String getWrongMessage() 
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='et-pb-contact-message']/ul[1]/li[1]")));
+            String wrongMess = wrongMessage.Text;
+            return wrongMess;
+        }
+
         //Method to check "Success" text
         public UltimateQA checkSuccessMessage()
         {
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='et_pb_contact_form_1']/div/p[1]")));
-            Assert.AreEqual(successMessage.Text, "Success");
-            Console.WriteLine("The correct message is displayed");
+            if (!((getSuccessMessage()).Equals("Success")))
+            {
+                throw new Exception("Expected Success Message is not displayed");
+            }
+            else
+            {
+                Console.WriteLine("Expected Success Message is displayed");
+            }
+            return this;
+        }
+
+        //Method to check "You entered the wrong number in captcha." text
+        public UltimateQA checkFailMessage ()
+        {
+            if(!((getWrongMessage()).Equals("You entered the wrong number in captcha.")))
+            {
+                throw new Exception("Expected fail message is not displayed");
+            }
+            else
+            {
+                Console.WriteLine("Expected fail message is displayed");
+            }
             return this;
         }
     }
